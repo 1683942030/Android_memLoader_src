@@ -11,7 +11,7 @@ LOCAL_EXPORT_LDLIBS := -llog
 include $(BUILD_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE :=  ndk_load
+LOCAL_MODULE :=  ll-loader
 LOCAL_SRC_FILES := LL.cpp \
 				   loader/loader.cpp\
 				   loader/utils.cpp
@@ -19,5 +19,5 @@ LOCAL_STATIC_LIBRARIES :=  core_substrate
 LOCAL_LDLIBS := -llog
 LOCAL_LDLIBS += -ldl
 LOCAL_CFLAGS := -Wall -fno-unwind-tables -fvisibility=hidden -fpermissive 
-#include $(BUILD_SHARED_LIBRARY)
-include $(BUILD_EXECUTABLE)
+include $(BUILD_SHARED_LIBRARY)
+
