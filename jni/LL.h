@@ -1,15 +1,3 @@
-/*
-*****************************************************************************
-* Copyright (C) 2005-2015 UCWEB Inc. All rights reserved
-* File        : LL.h
-* Description : mem_loader 内存加载劫持加壳
-* Creation    : 2015.8.5
-* Author      : LLhack  <yiliu.zyl@alibaba-inc.com>
-* History     :
-*
-******************************************************************************
-**/
-
 #ifndef _LL_H
 #define _LL_H
 
