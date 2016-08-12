@@ -1,10 +1,9 @@
 /*
 *****************************************************************************
-* Copyright (C) 2005-2015 UCWEB Inc. All rights reserved
 * File        : Loader.cpp
-* Description : mem_loader ÄÚ´æ¼ÓÔØ½Ù³Ö¼Ó¿Ç
+* Description : mem_loader å†…å­˜åŠ è½½åŠ«æŒåŠ å£³
 * Creation    : 2015.8.5
-* Author      : LLhack  <yiliu.zyl@alibaba-inc.com>
+* Author      : LLhack
 * History     :
 *
 ******************************************************************************
@@ -627,7 +626,7 @@ int loader::loadDependedLibray(soinfo *si)
 				LDBG("Cannot find %s library from syspath\n", libpath);
 				memset(selfprocName, 0, sizeof(selfprocName));
 
-				utils::_getselfProcName(selfprocName,sizeof(selfprocName));/*apk µ÷ÓÃ Ê¹ÓÃÕâ¸öÂ·¾¶*/
+				utils::_getselfProcName(selfprocName,sizeof(selfprocName));/*apk è°ƒç”¨ ä½¿ç”¨è¿™ä¸ªè·¯å¾„*/
 				
 				/*parse name*/
 				const char *bname;
@@ -664,7 +663,7 @@ int loader::relocSym(const char *name, unsigned base, unsigned r_offset)
 	
 	LDBG("m_soCount:%d\n", m_soCount);
 
-	/*__aeabi_atexit weak º¯Êı ĞèÒªÔÚÁ´½ÓÊ±×Ô¼ºµ¼Èë,dlsymÎŞ·¨²éÑ¯µ½´Ëº¯Êı*/
+	/*__aeabi_atexit weak å‡½æ•° éœ€è¦åœ¨é“¾æ¥æ—¶è‡ªå·±å¯¼å…¥,dlsymæ— æ³•æŸ¥è¯¢åˆ°æ­¤å‡½æ•°*/
 	if (strcmp(name, "__aeabi_atexit") == 0)
 	{
 		vaddr = (void*)__aeabi_atexit;		/*extern this fuction*/
@@ -690,7 +689,7 @@ int loader::relocSym(const char *name, unsigned base, unsigned r_offset)
 }
 
 /*
-* ¶Ôsymbol_addrÖØ¶¨Î»
+* å¯¹symbol_addré‡å®šä½
 */
 int loader::doDependeLibSymReloc(soinfo *si)
 {
@@ -738,7 +737,7 @@ int loader::doDependeLibSymReloc(soinfo *si)
 
 /*
 * find neededSym addr
-* ²éÑ¯ÄÚ´æ¼ÓÔØµÄso symbol
+* æŸ¥è¯¢å†…å­˜åŠ è½½çš„so symbol
 */
 unsigned loader::_findSym(soinfo *si, const char* name)
 {
@@ -764,7 +763,7 @@ unsigned loader::_findSym(soinfo *si, const char* name)
 }
 
 /*
-* »ñÈ¡ÄÚ´æ¼ÓÔØµÄso symAddr
+* è·å–å†…å­˜åŠ è½½çš„so symAddr
 */
 void loader::LL_getMySymAddr(soinfo *si)
 {
@@ -842,7 +841,7 @@ void loader::callConstructors(soinfo *si)
 }
 
 /*
-* µ÷ÓÃÎö¹¹
+* è°ƒç”¨ææ„
 */
 void loader::callDestructors(soinfo *si)
 {
@@ -1011,7 +1010,7 @@ int loader::LL_dlcolse(soinfo *si)
 {
 	if (si!=NULL)
 	{
-		callDestructors(si);   /*µ÷ÓÃÎö¹¹º¯Êı*/
+		callDestructors(si);   /*è°ƒç”¨ææ„å‡½æ•°*/
 
 		if (mprotect((void *)si->base, si->size, PROT_READ | PROT_WRITE) == -1)
 		{
