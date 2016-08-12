@@ -1,9 +1,9 @@
 /*
 *****************************************************************************
 * File        : LL.cpp
-* Description : mem_loader ÄÚ´æ¼ÓÔØ,½Ù³Ö
+* Description : mem_loader å†…å­˜åŠ è½½,åŠ«æŒ
 * Creation    : 2015.8.5
-* Author      : ÇàÇàÎÒÀ´À²À²À²
+* Author      : ll-hack
 * History     :	
 *
 ******************************************************************************
@@ -45,7 +45,7 @@ __attribute__((visibility("hidden"))) unsigned Ex_dlsym_shell(soinfo *si, char *
 
 	loadedSi = (soinfo*)g_memSiHandle;
 
-	/*si->name °²×¿°æ±¾²»Í¬,´¦ÓÚsilist½á¹¹Æ«ÒÆ²»Í¬,Ö»ÄÜÔÚÌØµãromÖĞ²âÊÔÖĞÓÃ*/
+	/*si->name å®‰å“ç‰ˆæœ¬ä¸åŒ,å¤„äºsilistç»“æ„åç§»ä¸åŒ,åªèƒ½åœ¨ç‰¹ç‚¹romä¸­æµ‹è¯•ä¸­ç”¨*/
 	//LDBG("[Catch!!!Back_Addr:%p] function: [%s] is dlsym [srcsiAddr:%p][siname:%s]!!!!!!!!\n", lr,func_name,(void*)si,si->name);
 	
 	LDBG("[Catch!!!Back_Addr:%p] function: [%s] is dlsym [srcsiAddr:%p]!!!!!!!!\n", lr, func_name, (void*)si);
@@ -73,7 +73,7 @@ __attribute__((visibility("hidden"))) void initLoader()
 {
 
 	/*
-	* ²âÊÔ½Ù³ÖÔ¤¼ÓÔØ!!!!!!!!!
+	* æµ‹è¯•åŠ«æŒé¢„åŠ è½½!!!!!!!!!
 	*/
 	/*
 	char szPath[] = "/data/local/tmp/libinjso.so";
@@ -90,8 +90,8 @@ __attribute__((visibility("hidden"))) void initLoader()
 	char LoaderName[NAMESIZE] = "libndk_load.so";
 
 	/*
-	* ²âÊÔ´Ó×ÊÔ´buffer¼ÓÔØ¶¯Ì¬¿â
-	* ²âÊÔÓÃµÄbuffer ´Ó¾²Ì¬data¶ÎÓ³Éä½øÀ´,»òÕßÍøÂçÏÂ·¢
+	* æµ‹è¯•ä»èµ„æºbufferåŠ è½½åŠ¨æ€åº“
+	* æµ‹è¯•ç”¨çš„buffer ä»é™æ€dataæ®µæ˜ å°„è¿›æ¥,æˆ–è€…ç½‘ç»œä¸‹å‘
 	*/
 #ifdef _LOADWITHBUFFER
 	unsigned char * dataStart = (unsigned char *)& _binary_libndk_load_so_start;
@@ -105,8 +105,8 @@ __attribute__((visibility("hidden"))) void initLoader()
 	}
 #else
 	/*
-	* ²âÊÔ´ÓÎÄ¼ş¼ÓÔØ¶¯Ì¬¿â
-	* ½«²âÊÔ¼ÓÔØµÄ¶¯Ì¬¿â·ÅÔÚdataPathÂ·¾¶ÏÂ
+	* æµ‹è¯•ä»æ–‡ä»¶åŠ è½½åŠ¨æ€åº“
+	* å°†æµ‹è¯•åŠ è½½çš„åŠ¨æ€åº“æ”¾åœ¨dataPathè·¯å¾„ä¸‹
 	*/
 	char dataPath[MAX_PATH] = { 0 };
 	snprintf(dataPath, sizeof(dataPath), "/data/local/tmp/%s", LoaderName);
@@ -121,7 +121,7 @@ __attribute__((visibility("hidden"))) void initLoader()
 	ld.LL_getMySymAddr((soinfo*)g_memSiHandle);
 
 	/*
-	* »ñÈ¡×ÔÉíÈ«¾Ö¾ä±ú
+	* è·å–è‡ªèº«å…¨å±€å¥æŸ„
 	*/
 	char procName[NAMESIZE] = { 0 };
 	char loaderPath[MAX_PATH] = { 0 };
@@ -138,7 +138,7 @@ __attribute__((visibility("hidden"))) void initLoader()
 
 	/*
 	* hook linker dlsym
-	* Íâ²¿º¯Êıµ÷ÓÃÁ÷³Ì×ªÈëmyShell
+	* å¤–éƒ¨å‡½æ•°è°ƒç”¨æµç¨‹è½¬å…¥myShell
 	*/
 	MSHookFunction((void*)dlsym, (void*)Ex_dlsym_shell, (void**)&old_dlsym);
 }
