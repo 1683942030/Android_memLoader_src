@@ -1,10 +1,9 @@
 /*
 *****************************************************************************
-* Copyright (C) 2005-2015 UCWEB Inc. All rights reserved
 * File        : Loader.h
-* Description : mem_loader 内存加载劫持加壳
+* Description : mem_loader
 * Creation    : 2015.8.5
-* Author      : LLhack  <yiliu.zyl@alibaba-inc.com>
+* Author      : LLhack
 * History     :
 *
 ******************************************************************************
