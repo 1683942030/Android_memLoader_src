@@ -1,5 +1,3 @@
--主要功能实现了无模块加载so库,加载so后，内存中无模块化,隐藏代码
--对第三方apk中so库的无源码劫持加载和初始化时的hook
--暂时支持arm32平台
--thans thomasking
--by ll-hack
+-主要功能实现了无模块加载so库
+-对第三方apk中so库的无码劫持加载和初始化时的hook
+-thanks thomasking
