@@ -1,14 +1,3 @@
-/*
-*****************************************************************************
-* Copyright (C) 2005-2015 UCWEB Inc. All rights reserved
-* File        : utils.cpp
-* Description : mem_loader ÄÚ´æ¼ÓÔØ½Ù³Ö¼Ó¿Ç
-* Creation    : 2015.8.5
-* Author      : LLhack
-* History     :
-*
-******************************************************************************
-**/
 #include "utils.h"
 
 utils::utils()
@@ -25,7 +14,7 @@ char* utils::_getEnv(const char* var_name)
 	return getenv(var_name);
 }
 
-char* utils::_getCurDir(char *buffer, int size)/*apk ÎŞĞ§ */
+char* utils::_getCurDir(char *buffer, int size)/*apk ÃÃÃÂ§ */
 {
 	return getcwd(buffer, size);
 }
@@ -157,7 +146,7 @@ void utils::_lookupMapsWithAddr(char *info,int nsize, unsigned addr,unsigned get
 	//	endaddr = strtoul(pch_end, NULL, 16);
 	//	if ((int)(addr - startaddr)>0 && (int)(addr - endaddr)<0)
 	//	{
-	//		getOffset = addr - startaddr;//¼ÆËãÆ«ÒÆ
+	//		getOffset = addr - startaddr;//Â¼Ã†Ã‹Ã£Ã†Â«Ã’Ã†
 	//		strncpy(info, line, nsize);
 	//		break;
 	//	}
