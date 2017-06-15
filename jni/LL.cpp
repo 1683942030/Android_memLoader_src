@@ -42,7 +42,7 @@ __attribute__((visibility("hidden"))) soinfo* Ex_dlopenwitBuffer(unsigned char*b
 		{
 			memcpy(alignBuffer, (const void*)buffer, nSize);
 
-			ld.LL_dlopenwitBuffer(SELFNAME, alignBuffer);
+			siRet = ld.LL_dlopenwitBuffer(SELFNAME, alignBuffer);
 			
 			munmap(alignBuffer, nSize);
 		}	
